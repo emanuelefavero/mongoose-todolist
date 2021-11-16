@@ -1,1 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
 
+:root {
+    --primary-color: rgb(221, 25, 84);
+    --accent-color: rgb(243, 60, 115);
+    --background-color: rgb(0, 21, 40);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+input,
+textarea,
+button,
+select,
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    width: 100%;
+    height: max-content;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* overflow: hidden; */
+}
+
+/* body::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    background-color: var(--primary-color);
+    box-shadow: 0px 0px 7px rgba(255, 255, 255, 0.25);
+    transform: rotate(12deg);
+    overflow: hidden;
+} */
+
+.background-image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.background-image::before {
+    content: '';
+    position: absolute;
+    width: 160%;
+    height: 100%;
+    top: 300px;
+    left: 0;
+    background-color: var(--primary-color);
+    box-shadow: 0px 0px 7px rgba(255, 255, 255, 0.25);
+    transform: rotate(-24deg);
+}
+
+.list-container {
+    position: relative;
+    width: 300px;
+    /* height: max-content; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 2rem;
+    margin-bottom: 10rem;
+}
+
+.list-container .title {
+    width: 100%;
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    padding: 0.2rem 1.25rem;
+    box-shadow: 2px 1px 3px rgba(255, 255, 255, 0.08);
+    cursor: default;
+    text-align: center;
+}
+
+.list-container .list-card {
+    width: 100%;
+    background: #fff;
+    color: black;
+    border-radius: 10px;
+    box-shadow: 2px 1px 7px rgba(255, 255, 255, 0.205);
+    margin-top: 2rem;
+    padding: 0.5rem 1rem;
+}
+
+.list-card .item {
+    padding: 0.5rem 0.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    cursor: default;
+}
+
+.list-card .item:first-of-type {
+    padding-top: 0.5rem 0rem;
+}
+
+.list-card input[type='checkbox'] {
+    cursor: pointer;
+}
+
+.list-card .checkbox-label {
+    padding-left: 0.8rem;
+    cursor: default;
+}
+
+.list-card input[type='checkbox']:checked {
+    background-color: var(--primary-color);
+}
+
+.list-card input[type='checkbox']:checked + .checkbox-label {
+    text-decoration: line-through;
+    /* text-decoration-color: var(--primary-color); */
+    text-decoration-color: black;
+    color: rgba(0, 0, 0, 0.25);
+}
+
+.list-card hr {
+    margin-top: 0.6rem;
+    opacity: 15%;
+}
+
+.list-card form.newItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem;
+    padding-top: -0.8rem;
+}
+
+.list-card form.newItem input[type='text'] {
+    border: none;
+    width: 100%;
+    padding: 0.7rem;
+    margin-right: 0.2rem;
+    caret-color: var(--primary-color);
+    font-size: 0.9rem;
+    font-weight: normal;
+    color: var(--primary-color);
+}
+
+.list-card form.newItem input[type='text']:focus {
+    outline: none;
+}
+
+.list-card form.newItem input[type='text']::placeholder {
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 0.9rem;
+    font-weight: normal;
+}
+
+.list-card form.newItem button {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 0.5rem 0.8rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 100px;
+    border: none;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.39);
+    animation: upDown 0.7s linear infinite alternate;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.list-card form.newItem button:hover {
+    transition: 0.5s;
+    background-color: var(--accent-color);
+    animation: none;
+}
+
+@keyframes upDown {
+    0% {
+        transform: translateY(5px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    padding: 1rem;
+    color: rgba(255, 255, 255, 0.3);
+}
