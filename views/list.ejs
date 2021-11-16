@@ -1,1 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
 
+    <body>
+        <!-- BACKGROUND IMAGE -->
+        <div class="background-image-container">
+            <div class="background-image"></div>
+        </div>
+
+        <!-- TITLE -->
+        <div class="list-container">
+            <div class="title">
+                <h2><%= listTitle %></h2>
+            </div>
+
+            <!-- LIST -->
+            <div class="list-card">
+                <% items.forEach(item => { %>
+                <!-- form with /delete route to handle delete on checked checkbox -->
+                <form action="/delete" method="post">
+                    <div class="item">
+                        <!-- when the checkbox is checked, submit form -->
+                        <input
+                            type="checkbox"
+                            name="checkbox"
+                            value="<%= item._id %> "
+                            onChange="this.form.submit()"
+                        />
+
+                        <!-- display each item name -->
+                        <span class="checkbox-label"><%= item.name %></span>
+                    </div>
+                </form>
+                <% }); %>
+
+                <!-- NEW ITEM -->
+                <form class="newItem" action="/" method="post">
+                    <input
+                        type="text"
+                        name="newItem"
+                        placeholder="New Item"
+                        autocomplete="off"
+                    />
+                    <button
+                        type="submit"
+                        name="addListItem"
+                        value="<%= listTitle %>"
+                    >
+                        +
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <% let date = new Date(); %>
+        <p class="footer">Copyright <%= date.getFullYear() %></p>
+    </body>
+</html>
